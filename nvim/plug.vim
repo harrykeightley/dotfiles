@@ -15,8 +15,10 @@ if has("nvim")
   Plug 'Mofiqul/dracula.nvim'
 
   Plug 'hoob3rt/lualine.nvim'
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'neovim/nvim-lspconfig'
-  Plug 'williamboman/nvim-lsp-installer'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'tami5/lspsaga.nvim'
   Plug 'folke/lsp-colors.nvim'
   Plug 'L3MON4D3/LuaSnip'
@@ -33,6 +35,7 @@ if has("nvim")
   Plug 'windwp/nvim-ts-autotag'
 
   Plug 'simrat39/rust-tools.nvim'
+  Plug 'lewis6991/gitsigns.nvim'
 endif
 
 call plug#end()
