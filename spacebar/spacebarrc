@@ -5,32 +5,32 @@ spacebar -m config display                     main
 spacebar -m config height                      28
 spacebar -m config title                       on
 spacebar -m config spaces                      on
-spacebar -m config power                       on
+spacebar -m config power                       off
 spacebar -m config clock                       on
-spacebar -m config padding_left                20
-spacebar -m config padding_right               20
+spacebar -m config padding_left                24
+spacebar -m config padding_right               24
 spacebar -m config spacing_left                25
 spacebar -m config spacing_right               25
-spacebar -m config text_font                   "Menlo:Regular:16.0"
-spacebar -m config icon_font                   "Menlo:Regular:16.0"
+spacebar -m config text_font                   "Hack:Regular:16.0"
+spacebar -m config icon_font                   "MesloLGS NF:Regular:16.0"
 spacebar -m config background_color            0xff192330
-spacebar -m config foreground_color            0xffa8a8a8
-spacebar -m config power_icon_color            0xffcd950c
-spacebar -m config battery_icon_color          0xffd75f5f
+spacebar -m config foreground_color            0xffffffff
+spacebar -m config power_icon_color            0xffa8a8a8
+spacebar -m config battery_icon_color          0xffa8a8a8
 spacebar -m config dnd_icon_color              0xffa8a8a8
 spacebar -m config clock_icon_color            0xffa8a8a8
-spacebar -m config power_icon_strip            " "
+spacebar -m config power_icon_strip            " "
 spacebar -m config space_icon                  •
 spacebar -m config space_icon_color            0xffffab91
 spacebar -m config space_icon_color_secondary  0xff78c4d4
 spacebar -m config space_icon_color_tertiary   0xfffff9b0
 spacebar -m config space_icon_strip            一 二 三 四 五 六 七 八 九 十
 spacebar -m config spaces_for_all_displays     on
-spacebar -m config clock_icon                  " "
+spacebar -m config clock_icon                  ""
 #spacebar -m config dnd_icon                    
-spacebar -m config clock_format                "%d/%m/%y %R"
+spacebar -m config clock_format                "%I:%M %p  %a  %d/%m"
 spacebar -m config right_shell                 off
-spacebar -m config right_shell_icon            " "
-spacebar -m config right_shell_command         "whoami"
+spacebar -m config right_shell_icon            ""
+spacebar -m config right_shell_command         "echo 'breathe...'"
 
 echo "spacebar configuration loaded.."

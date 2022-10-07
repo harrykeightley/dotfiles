@@ -63,6 +63,8 @@ nvim_lsp.flow.setup {
   capabilities = capabilities
 }
 
+nvim_lsp.terraformls.setup{}
+
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "typescript.tsx" },
@@ -96,6 +98,12 @@ nvim_lsp.sumneko_lua.setup {
         checkThirdParty = false
       },
     },
+  },
+}
+
+nvim_lsp.tailwindcss.setup {
+  settings = {
+    classAttributes = {"class","className","ngClass", "style"}
   },
 }
 

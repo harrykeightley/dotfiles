@@ -9,9 +9,14 @@ null_ls.setup {
       diagnostics_format = '[eslint] #{m}\n(#{c})'
     }),
     null_ls.builtins.diagnostics.fish,
+    --null_ls.builtins.diagnostics.pylint,
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.terraform_fmt,
+    null_ls.builtins.formatting.raco_fmt.with({
+      filetypes = {"racket", "scheme"}
+    }),
   },
   on_attach = function(client, bufnr)
     if client.server_capabilities.documentFormattingProvider then
