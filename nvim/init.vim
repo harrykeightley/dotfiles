@@ -104,6 +104,9 @@ if &term =~ "screen"
   autocmd VimLeave * silent!  exe '!echo -n "\ek[`hostname`:`basename $PWD`]\e\\"'
 endif
 
+" Remove numbers in terminal because they confuse the shit out of my brain.
+autocmd TermOpen * setlocal nonumber norelativenumber | setfiletype terminal
+
 "}}}
 
 " File types "{{{

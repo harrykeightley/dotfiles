@@ -32,9 +32,9 @@ local on_attach = function(client, bufnr)
 
   buf_nnoremap { '<space>f', vim.lsp.buf.format }
 
-  -- Diagnostics
-  buf_nnoremap { '<space>dj', vim.diagnostic.goto_next }
-  buf_nnoremap { '<space>dk', vim.diagnostic.goto_prev }
+  -- Diagnostics (moved to after.plugin.diagnostic)
+  -- buf_nnoremap { '<space>dj', vim.diagnostic.goto_next }
+  -- buf_nnoremap { '<space>dk', vim.diagnostic.goto_prev }
   buf_nnoremap { '<space>dl', '<cmd>Telescope diagnostics<cr>' }
 end
 
