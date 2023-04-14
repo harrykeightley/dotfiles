@@ -2,6 +2,8 @@ if has("nvim")
   let g:plug_home = stdpath('data') . '/plugged'
 endif
 
+lua require("hjk.globals")
+
 call plug#begin()
 
 Plug 'tpope/vim-fugitive'
@@ -15,13 +17,19 @@ if has("nvim")
   Plug 'Mofiqul/dracula.nvim'
 
   Plug 'hoob3rt/lualine.nvim'
+
+  " Language server management
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'tami5/lspsaga.nvim'
   Plug 'folke/lsp-colors.nvim'
+
+  " Snippets
   Plug 'L3MON4D3/LuaSnip'
+  Plug 'saadparwaiz1/cmp_luasnip'
+
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
@@ -33,6 +41,9 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
+
+  " Smart commenting
+  Plug 'numToStr/Comment.nvim'
 
   Plug 'simrat39/rust-tools.nvim'
   Plug 'lewis6991/gitsigns.nvim'

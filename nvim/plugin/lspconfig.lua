@@ -3,25 +3,41 @@ if (not status) then return end
 
 local protocol = require('vim.lsp.protocol')
 
--- Use an on_attach function to only map the following keys 
+local create_mapper = require('hjk.keymap').create_mapper
+
+-- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   --Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
-  local opts = { noremap=true, silent=true }
+  local opts = { noremap = true, silent = true, buffer = bufnr }
+  local buf_nnoremap = create_mapper({ 'n', opts })
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
-  -- buf_set_keymap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_nnoremap { 'gd', vim.lsp.buf.definition }
+  buf_nnoremap { 'gD', vim.lsp.buf.declaration }
+  buf_nnoremap { 'gt', vim.lsp.buf.type_definition }
+  buf_nnoremap { 'gi', vim.lsp.buf.implementation }
+  buf_nnoremap { 'gr', '<cmd>Telescope lsp_references<cr>'  }
+  buf_nnoremap { 'gs', '<cmd>Telescope lsp_document_symbols<cr>'  }
+
+  buf_nnoremap { 'K', vim.lsp.buf.hover }
+
+  buf_nnoremap { '<space>cr', vim.lsp.buf.rename }
+  buf_nnoremap { '<space>ca', vim.lsp.buf.code_action }
+
+  buf_nnoremap { '<space>f', vim.lsp.buf.format }
+
+  -- Diagnostics
+  buf_nnoremap { '<space>dj', vim.diagnostic.goto_next }
+  buf_nnoremap { '<space>dk', vim.diagnostic.goto_prev }
+  buf_nnoremap { '<space>dl', '<cmd>Telescope diagnostics<cr>' }
 end
+
 
 protocol.CompletionItemKind = {
   '', -- Text
@@ -54,16 +70,17 @@ protocol.CompletionItemKind = {
 
 
 -- Set up completion using nvim_cmp with LSP source
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
+local capabilities = require('cmp_nvim_lsp').default_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
+-- Bunch of lsps to setup with autocompletion
 nvim_lsp.flow.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
-nvim_lsp.terraformls.setup{}
+nvim_lsp.terraformls.setup {}
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
@@ -83,7 +100,7 @@ nvim_lsp.rust_analyzer.setup {
   capabilities = capabilities,
 }
 
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   on_attach = on_attach,
   settings = {
     Lua = {
@@ -91,7 +108,6 @@ nvim_lsp.sumneko_lua.setup {
         -- Get the language server to recognize the `vim` global
         globals = { 'vim' },
       },
-
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
@@ -103,15 +119,16 @@ nvim_lsp.sumneko_lua.setup {
 
 nvim_lsp.tailwindcss.setup {
   settings = {
-    classAttributes = {"class","className","ngClass", "style"}
+    classAttributes = { "class", "className", "ngClass", "style" }
   },
 }
+
+nvim_lsp.astro.setup {}
 
 -- icon
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,
-    -- This sets the spacing and the prefix, obviously.
     virtual_text = {
       spacing = 4,
       prefix = ''

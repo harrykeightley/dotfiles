@@ -66,11 +66,14 @@ set ai "Auto indent
 set si "Smart indent
 set nowrap "No Wrap lines
 set backspace=start,eol,indent
+
 " Finding files - Search down into subfolders
 set path+=**
 set wildignore+=**/node_modules/*
 set wildignore+=**.pyc
 set wildignore+=*.pyc
+set wildignore+=*.o
+set wildignore+=*.DS_Store
 
 " Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
@@ -163,11 +166,11 @@ if exists("&termguicolors") && exists("&winblend")
   "colorscheme dracula
   
   " Kanegawa
-  "colorscheme kanagawa
+  " colorscheme kanagawa
   
   " Catpuccin
   let g:catppuccin_flavour = "macchiato" " latte, frappe, macchiato, mocha
-  "colorscheme catppuccin
+  " colorscheme catppuccin
   
   " Nightfox
   colorscheme nightfox

@@ -15,6 +15,7 @@ require'nvim-treesitter.configs'.setup {
   },
   ensure_installed = {
     "tsx",
+    "rust",
     "toml",
     "fish",
     "php",
