@@ -61,7 +61,7 @@ end
 local nmap = mapper { 'n', {} }
 
 nmap {
-  "<space>dj",
+  "<leader>dj",
   function()
     vim.diagnostic.goto_next {
       severity = get_highest_error_severity(),
@@ -72,7 +72,7 @@ nmap {
 }
 
 nmap {
-  "<space>dk",
+  "<leader>dk",
   function()
     vim.diagnostic.goto_prev {
       severity = get_highest_error_severity(),
@@ -83,7 +83,7 @@ nmap {
 }
 
 nmap {
-  "<space>ds",
+  "<leader>ds",
   function()
     vim.diagnostic.open_float(0, {
       scope = "line",

@@ -7,6 +7,9 @@ autocmd!
 scriptencoding utf-8
 " stop loading config if it's on tiny or small
 if !1 | finish | endif
+
+let mapleader=" "
+
 set guicursor=
 set nocompatible
 set relativenumber
@@ -27,7 +30,6 @@ set undofile
 
 set nohlsearch
 set incsearch
-set showcmd
 set cmdheight=1
 set signcolumn=yes
 set colorcolumn=80
@@ -169,14 +171,17 @@ if exists("&termguicolors") && exists("&winblend")
   "colorscheme dracula
   
   " Kanegawa
-  " colorscheme kanagawa
+  "colorscheme kanagawa
   
   " Catpuccin
-  let g:catppuccin_flavour = "macchiato" " latte, frappe, macchiato, mocha
-  " colorscheme catppuccin
+  let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
+  "colorscheme catppuccin
   
   " Nightfox
-  colorscheme nightfox
+  "colorscheme nightfox
+
+  " Dark rose
+  "colorscheme darkrose
 
 endif
 

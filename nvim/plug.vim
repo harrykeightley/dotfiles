@@ -15,6 +15,7 @@ if has("nvim")
   Plug 'rebelot/kanagawa.nvim'
   Plug 'EdenEast/nightfox.nvim'
   Plug 'Mofiqul/dracula.nvim'
+  Plug 'water-sucks/darkrose.nvim'
 
   Plug 'hoob3rt/lualine.nvim'
 
@@ -41,6 +42,9 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
+
+  " netrw file tree replacement
+  Plug 'nvim-tree/nvim-tree.lua'
 
   " Smart commenting
   Plug 'numToStr/Comment.nvim'

@@ -27,15 +27,15 @@ local on_attach = function(client, bufnr)
 
   buf_nnoremap { 'K', vim.lsp.buf.hover }
 
-  buf_nnoremap { '<space>cr', vim.lsp.buf.rename }
-  buf_nnoremap { '<space>ca', vim.lsp.buf.code_action }
+  buf_nnoremap { '<leader>rn', vim.lsp.buf.rename }
+  buf_nnoremap { '<leader>ca', vim.lsp.buf.code_action }
 
-  buf_nnoremap { '<space>f', vim.lsp.buf.format }
+  buf_nnoremap { '<leader>f', vim.lsp.buf.format }
 
   -- Diagnostics (moved to after.plugin.diagnostic)
-  -- buf_nnoremap { '<space>dj', vim.diagnostic.goto_next }
-  -- buf_nnoremap { '<space>dk', vim.diagnostic.goto_prev }
-  buf_nnoremap { '<space>dl', '<cmd>Telescope diagnostics<cr>' }
+  -- buf_nnoremap { '<leader>dj', vim.diagnostic.goto_next }
+  -- buf_nnoremap { '<leader>dk', vim.diagnostic.goto_prev }
+  buf_nnoremap { '<leader>dl', '<cmd>Telescope diagnostics<cr>' }
 end
 
 

@@ -44,8 +44,11 @@ nmap <Tab> :tabnext<Return>
 " Split window
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
-" Move window
-nmap <Space> <C-w>w
+" Move between splits
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 map s<left> <C-w>h
 map s<up> <C-w>k
 map s<down> <C-w>j
@@ -59,4 +62,7 @@ nmap <C-w><left> <C-w><
 nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><down> <C-w>-
+
+" Terminal
+tnoremap <Esc> <C-\><C-n>
 

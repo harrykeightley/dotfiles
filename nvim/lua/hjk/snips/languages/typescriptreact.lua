@@ -5,13 +5,13 @@ local f = ls.function_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 local capitalise = function(str)
-    return (str:gsub("^%l", string.upper))
+  return (str:gsub("^%l", string.upper))
 end
 
 local capitalise_node = function(index)
-  return f(function (arg)
+  return f(function(arg)
     return capitalise(arg[1][1])
-  end, {index})
+  end, { index })
 end
 
 return {
@@ -26,9 +26,9 @@ return {
   -- useEffect hook
   s("ue", fmt([[
     useEffect(() => {
-      %$ 
+      %$
     }, [%$]);
-  ]], { i(1), i(0) }, { delimiters = "%$"})),
+  ]], { i(1), i(0) }, { delimiters = "%$" })),
   -- ts functional component
   s("rfc", fmt([[
     import React, {FC} from "react";
@@ -46,6 +46,7 @@ return {
       );
     };
 
-    export default %$
-  ]], { rep(1), i(2), i(1), rep(1), i(3), i(0), rep(1), rep(1) }, { delimiters = "%$" }))
+    export default %$;
+  ]], { rep(1), i(2), i(1), rep(1), i(3), i(0), rep(1), rep(1) }, { delimiters = "%$" })),
+  s("clg", fmt("console.log({})", i(0)))
 }
