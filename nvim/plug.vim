@@ -8,6 +8,7 @@ call plug#begin()
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
 
 if has("nvim")
   "Colorschemes
@@ -17,7 +18,11 @@ if has("nvim")
   Plug 'Mofiqul/dracula.nvim'
   Plug 'water-sucks/darkrose.nvim'
 
+  Plug 'rose-pine/neovim', {'as': 'rose-pine'}
+  Plug 'savq/melange-nvim'
   Plug 'hoob3rt/lualine.nvim'
+
+  Plug 'rktjmp/lush.nvim'
 
   " Language server management
   Plug 'williamboman/mason.nvim'
@@ -51,6 +56,12 @@ if has("nvim")
 
   Plug 'simrat39/rust-tools.nvim'
   Plug 'lewis6991/gitsigns.nvim'
+
+  " Lispy stuff
+  Plug 'Olical/conjure'
+  Plug 'guns/vim-sexp'
+  Plug 'tpope/vim-sexp-mappings-for-regular-people'
+
 endif
 
 call plug#end()

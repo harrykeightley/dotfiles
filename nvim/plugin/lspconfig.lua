@@ -22,8 +22,8 @@ local on_attach = function(client, bufnr)
   buf_nnoremap { 'gD', vim.lsp.buf.declaration }
   buf_nnoremap { 'gt', vim.lsp.buf.type_definition }
   buf_nnoremap { 'gi', vim.lsp.buf.implementation }
-  buf_nnoremap { 'gr', '<cmd>Telescope lsp_references<cr>'  }
-  buf_nnoremap { 'gs', '<cmd>Telescope lsp_document_symbols<cr>'  }
+  buf_nnoremap { 'gr', '<cmd>Telescope lsp_references<cr>' }
+  buf_nnoremap { 'gs', '<cmd>Telescope lsp_document_symbols<cr>' }
 
   buf_nnoremap { 'K', vim.lsp.buf.hover }
 
@@ -124,6 +124,14 @@ nvim_lsp.tailwindcss.setup {
 }
 
 nvim_lsp.astro.setup {}
+
+nvim_lsp.svelte.setup {
+  on_attach = on_attach,
+}
+
+nvim_lsp.clojure_lsp.setup {
+  on_attach = on_attach
+}
 
 -- icon
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

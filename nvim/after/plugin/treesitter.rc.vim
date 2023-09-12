@@ -25,6 +25,9 @@ require'nvim-treesitter.configs'.setup {
     "html",
     "scss",
     "python",
+    "svelte",
+    "astro",
+    "clojure",
   },
   autotag = {
     enable = true,

@@ -181,7 +181,10 @@ if exists("&termguicolors") && exists("&winblend")
   "colorscheme nightfox
 
   " Dark rose
-  "colorscheme darkrose
+  " colorscheme darkrose
+  
+  " Melange
+  " colorscheme melange
 
 endif
 
