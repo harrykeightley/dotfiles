@@ -1,18 +1,22 @@
 local M = {}
 
-M.imap = function(tbl)
-  vim.keymap.set("i", tbl[1], tbl[2], tbl[3])
+M.map = function(mode, tbl)
+  vim.keymap.set(mode, tbl[1], tbl[2], tbl[3])
 end
 
 M.nmap = function(tbl)
-  vim.keymap.set("n", tbl[1], tbl[2], tbl[3])
+  return M.map("n", tbl)
+end
+
+M.imap = function(tbl)
+  return M.map("i", tbl)
 end
 
 M.create_mapper = function(tbl)
   local mode = tbl[1]
   local opts = tbl[2]
-  return function (tbl2)
-    vim.keymap.set(mode, tbl2[1], tbl2[2], opts)
+  return function(tbl2)
+    vim.keymap.set(mode, tbl2[1], tbl[2], opts)
   end
 end
 
